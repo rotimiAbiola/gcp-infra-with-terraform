@@ -3,7 +3,7 @@ resource "google_storage_bucket" "bucket_for_state" {
   location                    = "US"
   uniform_bucket_level_access = true
   project                     = var.project_id
-  force_destroy = true
+  force_destroy               = true
 }
 
 terraform {
