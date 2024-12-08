@@ -33,3 +33,31 @@ module "prod_service_account" {
     "roles/compute.networkAdmin",
   ]
 }
+
+module "network" {
+  source = "./modules/network"
+
+  project_id          = var.project_id
+  region              = var.region
+  vpc_name            = var.vpc_name
+  public_subnet_cidr  = var.public_subnet_cidr
+  private_subnet_cidr = var.private_subnet_cidr
+}
+
+module "firewall" {
+  source = "./modules/firewall"
+
+  project_id          = var.project_id
+  vpc_id              = module.network.vpc_id
+  public_subnet_cidr  = module.network.public_subnet_cidr
+  private_subnet_cidr = module.network.private_subnet_cidr
+}
+
+module "nat" {
+  source = "./modules/nat"
+
+  project_id        = var.project_id
+  region            = var.region
+  vpc_id            = module.network.vpc_id
+  private_subnet_id = module.network.private_subnet_id
+}
