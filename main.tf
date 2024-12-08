@@ -27,6 +27,7 @@ module "prod_service_account" {
   service_account_roles = [
     "roles/compute.admin",
     "roles/storage.admin",
-    "roles/iam.serviceAccountUser"
+    "roles/iam.serviceAccountUser",
+    "roles/compute.networkAdmin",   
   ]
 }

@@ -1,1 +1,1 @@
-# jenkins-on-gcp-with-terraform
+# gcp-with-terraform
