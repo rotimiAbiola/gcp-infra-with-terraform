@@ -11,7 +11,8 @@ module "dev_service_account" {
     "roles/viewer",
     "roles/compute.viewer",
     "roles/networkmanagement.viewer",
-    "roles/storage.objectViewer"
+    "roles/storage.objectViewer",
+    "roles/storage.objectAdmin"
   ]
 }
 
